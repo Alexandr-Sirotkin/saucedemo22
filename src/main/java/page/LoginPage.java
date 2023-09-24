@@ -2,6 +2,7 @@ package page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Waiter;
 
 public class LoginPage extends Page {
 
@@ -20,16 +21,16 @@ public class LoginPage extends Page {
   }
 
   public LoginPage fillInUserName(String userName) {
-    usernameField.sendKeys(userName);
+    Waiter.waitVisibilityOf(usernameField).sendKeys(userName);
     return this;
   }
 
   public LoginPage fillInPassword(String password) {
-    passwordField.sendKeys(password);
+    Waiter.waitVisibilityOf(passwordField).sendKeys(password);
     return this;
   }
 
   public void clickLoginButton() {
-    loginButton.click();
+    Waiter.waitElementToBeClickable(loginButton).click();
   }
 }
